@@ -6,7 +6,7 @@
 /*   By: amazhara <amazhara@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/03 12:13:22 by amazhara          #+#    #+#             */
-/*   Updated: 2019/02/06 21:16:06 by amazhara         ###   ########.fr       */
+/*   Updated: 2019/02/08 15:41:53 by amazhara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,13 +51,13 @@ static inline void		ls_print(t_files *s, int mode, char *link)
 static inline void		ls_good_print(t_files *s, char *link, t_flags fl)
 {
 	if (link)
-		ft_printf("%*s %*u %.*s  %.*s  %*jd %.*s %.*s -> %s\n", fl.x, s->xattr,
+		ft_printf("%*s %*u %-*s  %-*s  %*jd %-*s %s -> %s\n", fl.x, s->xattr,
 		fl.rr, s->nlinks, fl.u, s->uid, fl.t, s->gid, fl.r, s->size, fl.a,
-		s->time, fl.l, s->name, s->link);
+		s->time, s->name, s->link);
 	else
-		ft_printf("%*s %*u %.*s  %.*s  %*jd %.*s %.*s\n", fl.x, s->xattr,
+		ft_printf("%*s %*u %-*s  %-*s  %*jd %-*s %s\n", fl.x, s->xattr,
 		fl.rr, s->nlinks, fl.u, s->uid, fl.t, s->gid, fl.r, s->size, fl.a,
-		s->time, fl.l, s->name);
+		s->time, s->name);
 }
 
 void					ls_out(t_argv av, int flag)

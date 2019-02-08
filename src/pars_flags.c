@@ -6,13 +6,13 @@
 /*   By: amazhara <amazhara@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/16 18:04:02 by amazhara          #+#    #+#             */
-/*   Updated: 2019/02/06 21:18:28 by amazhara         ###   ########.fr       */
+/*   Updated: 2019/02/08 17:02:48 by amazhara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-static int	check_arg(char *str)
+int			check_arg(char *str)
 {
 	DIR				*dir;
 

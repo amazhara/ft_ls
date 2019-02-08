@@ -6,11 +6,12 @@
 /*   By: amazhara <amazhara@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/15 17:19:12 by amazhara          #+#    #+#             */
-/*   Updated: 2019/02/06 21:11:59 by amazhara         ###   ########.fr       */
+/*   Updated: 2019/02/08 17:01:32 by amazhara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
+#include <stdio.h>
 
 void	start_algorithm(t_ft_ls *ms)
 {

@@ -6,7 +6,7 @@
 /*   By: amazhara <amazhara@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/17 09:16:09 by amazhara          #+#    #+#             */
-/*   Updated: 2019/02/06 21:24:16 by amazhara         ###   ########.fr       */
+/*   Updated: 2019/02/08 15:25:23 by amazhara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ static void		take_dinfo(t_argv *argm)
 		case_leak = ft_strjoin(argm->arg, "/");
 		tmp_way = ft_strjoin(case_leak, tmp->name);
 		lstat(tmp_way, &sbuf);
-		if (sbuf.st_mode != 16713)
+		if (sbuf.st_mode)
 		{
 			d_inf(tmp, tmp_way, sbuf);
 			blocks += sbuf.st_blocks;
@@ -76,9 +76,9 @@ static void		recurs_ls(t_ft_ls *ms, t_argv *argm)
 	bubble_sort(argm, ms->fl.t);
 	if (ms->fl.r)
 		r_sort(argm->output, argm->last);
-	ls_out(*argm, ms->fl.l);
 	if (ms->fl.rr && argm->files->name)
 		take_more_fold(argm);
+	ls_out(*argm, ms->fl.l);
 	av = argm->flist;
 	while (ms->fl.rr && argm->flist && argm->flist->fsave)
 	{
@@ -110,6 +110,8 @@ void			plenum_flist(t_ft_ls *ms, t_argv *argm)
 			}
 	if (dir)
 		closedir(dir);
+	else
+		check_arg(argm->arg);
 	if (argm->files->name)
 		take_dinfo(argm);
 	recurs_ls(ms, argm);

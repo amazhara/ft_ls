@@ -6,7 +6,7 @@
 /*   By: amazhara <amazhara@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/02 13:32:15 by amazhara          #+#    #+#             */
-/*   Updated: 2019/02/06 21:17:03 by amazhara         ###   ########.fr       */
+/*   Updated: 2019/02/08 15:29:06 by amazhara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,6 +97,8 @@ void	bubble_sort(t_argv *argm, int timeflag)
 		tmp = tmp->next;
 	}
 	argm->last = len - 1;
-	timeflag == true ? time_bsort(arr) : classic_bsort(arr);
+	classic_bsort(arr);
+	if (timeflag)
+		time_bsort(arr);
 	argm->output = arr;
 }

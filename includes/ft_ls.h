@@ -6,7 +6,7 @@
 /*   By: amazhara <amazhara@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/15 17:21:22 by amazhara          #+#    #+#             */
-/*   Updated: 2019/02/06 21:34:12 by amazhara         ###   ########.fr       */
+/*   Updated: 2019/02/08 14:20:15 by amazhara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,7 @@ struct	s_ft_ls
 };
 
 int		pars_flags(t_ft_ls *ms, char **argv);
+int		check_arg(char *str);
 void	plenum_flist(t_ft_ls *ms, t_argv *argm);
 void	bubble_sort(t_argv *argm, int timeflag);
 void	classic_ls_output(t_flags *fl, t_argv *av);

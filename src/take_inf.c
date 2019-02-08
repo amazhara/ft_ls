@@ -6,7 +6,7 @@
 /*   By: amazhara <amazhara@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/04 18:53:39 by amazhara          #+#    #+#             */
-/*   Updated: 2019/02/06 21:27:02 by amazhara         ###   ########.fr       */
+/*   Updated: 2019/02/08 17:01:36 by amazhara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,8 +81,17 @@ static char	*take_xattr(mode_t st_mode, char *passname)
 
 void		d_inf(t_files *tmp, char *tmp_way, struct stat sbuf)
 {
-	tmp->time = ft_strsub(ctime(&sbuf.st_mtime), 4, 12);
-	tmp->sort_time = sbuf.st_ctimespec.tv_sec;
+	char	*t;
+
+	if (sbuf.st_mtimespec.tv_sec < 1533858220)
+	{
+		t = ft_strsub(ctime(&sbuf.st_mtime), 19, 5);
+		tmp->time = ft_strjoin(ft_strsub(ctime(&sbuf.st_mtime), 4, 7), t);
+		free(t);
+	}
+	else
+		tmp->time = ft_strsub(ctime(&sbuf.st_mtime), 4, 12);
+	tmp->sort_time = sbuf.st_mtimespec.tv_sec;
 	tmp->size = sbuf.st_size;
 	tmp->gid = ft_strdup(getgrgid(sbuf.st_gid)->gr_name);
 	tmp->uid = ft_strdup(getpwuid(sbuf.st_uid)->pw_name);
